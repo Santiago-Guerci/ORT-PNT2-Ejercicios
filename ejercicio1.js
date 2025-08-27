@@ -23,4 +23,4 @@ preparativos.splice(preparativos.findIndex(item => item.requisito === "seguro de
 
 preparativos.find(item => item.requisito === "transporte confirmado").valor = false;
 
-console.log(preparativos);
+listoParaViajar(preparativos);
