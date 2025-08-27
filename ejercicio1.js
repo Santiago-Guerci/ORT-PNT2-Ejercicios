@@ -24,3 +24,18 @@ preparativos.splice(preparativos.findIndex(item => item.requisito === "seguro de
 preparativos.find(item => item.requisito === "transporte confirmado").valor = false;
 
 listoParaViajar(preparativos);
+
+const listoParaViajarAPI = async () => {
+    const preparativosAPI = await fetch('https://www.mockachino.com/33754ea7-2586-48/preparativos');
+    const response = await preparativosAPI.json();
+    const data = response.preparativos;
+
+    let faltantesAPI = data.filter(item => !item.valor).map(item => item.requisito);
+    if (faltantesAPI.length === 0) {
+        console.log("¡Listo para viajar!");
+    } else {
+        console.log("No puedes viajar, te faltan: " + faltantesAPI.join(", "));
+    }
+}
+
+listoParaViajarAPI();
