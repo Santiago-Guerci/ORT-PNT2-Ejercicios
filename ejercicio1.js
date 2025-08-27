@@ -16,3 +16,11 @@ const listoParaViajar = (lista) => {
 }
 
 listoParaViajar(preparativos);
+
+preparativos.push({ requisito: "vacunas necesarias", valor: true });
+
+preparativos.splice(preparativos.findIndex(item => item.requisito === "seguro de viaje"), 1);
+
+preparativos.find(item => item.requisito === "transporte confirmado").valor = false;
+
+console.log(preparativos);
